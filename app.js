@@ -7,6 +7,7 @@ const morgan = require('morgan')
 // app.use(express.urlencoded())
 app.use(express.json())
 app.use(morgan("tiny"))
+require('dotenv').config()
 
 
 app.use("/public", express.static(path.join(__dirname, "public")));
@@ -41,12 +42,12 @@ app.use("/api/adoption",adoption_router)
 app.use(cors());
 // const connectDB = require("./database/database")
 
-const port = 2000
+const port = process.env.PORT
 
-const mongoUrl ="mongodb://127.0.0.1:27017/petdatabase"
+// const mongoUrl ="mongodb://127.0.0.1:27017/petdatabase"
 
 //  database connection function 
-connectDB(mongoUrl);
+connectDB(process.env.MONGO_URL);
 
 
 
