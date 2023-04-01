@@ -7,6 +7,7 @@ const morgan = require('morgan')
 // app.use(express.urlencoded())
 app.use(express.json())
 app.use(morgan("tiny"))
+app.use(cors());
 require('dotenv').config()
 
 
@@ -39,7 +40,7 @@ app.use("/api/adoption",adoption_router)
 
 
 
-app.use(cors());
+
 // const connectDB = require("./database/database")
 
 const port = process.env.PORT
